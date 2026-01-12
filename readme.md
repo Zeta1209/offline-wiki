@@ -42,7 +42,7 @@ Créer un point d'accès Wi-Fi autonome servant Wikipedia hors-ligne via Kiwix :
 hostname -I
 
 # Se connecter
-ssh pi@<IP_DU_PI>
+ssh piwiki@<IP_DU_PI>
 
 # Changer le mot de passe par défaut
 passwd
@@ -56,14 +56,12 @@ passwd
 
 ```bash
 sudo mkdir -p /data/zim
-sudo chown -R pi:pi /data
+sudo chown -R piwiki:piwiki /data
 ```
 
 ### Transférer les fichiers ZIM (depuis ton PC)
 
-```bash
-scp wikipedia_en_all_nopic.zim pi@<IP_DU_PI>:/data/zim/
-```
+Utiliser WinSCP
 
 ### Tester Kiwix manuellement
 
