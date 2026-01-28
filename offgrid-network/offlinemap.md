@@ -54,11 +54,59 @@ Update the system:
 
 ```bash
 sudo apt update && sudo apt upgrade -y
-sudo apt install epiphany-browser
+sudo apt install epiphany-browser onboard at-spi2-core
 sudo reboot
 ```
 
-### 1.3 Install Docker
+### 1.3 Switch from Wayland to X11
+
+Onboard does not work properly under Wayland. You must switch to X11:
+
+```bash
+sudo raspi-config
+```
+
+Navigate to: **Advanced Options → Wayland → X11**
+
+### 1.4 Enable Auto-Login
+
+Navigate to: **System Options → Boot / Auto Login → Desktop Autologin**
+
+This eliminates password prompts that would be difficult without a keyboard.
+
+Reboot after changing:
+
+```bash
+sudo reboot
+```
+
+## On-Screen Keyboard Setup
+
+### Configure Onboard
+
+Start Onboard:
+
+```bash
+onboard &
+```
+
+Open Onboard **Preferences** and configure:
+
+**General tab:**
+- ✅ Enable "Show floating icon when Onboard is hidden"
+- ✅ Enable "Auto-show when editing text" (keyboard appears automatically in text fields)
+
+**Window tab:**
+- ✅ Enable "Dock to screen edge"
+- Set edge to "Bottom"
+- ✅ Enable "Expand to landscape/portrait"
+- ❌ Disable "Window decoration" (removes title bar with minimize/maximize/close buttons)
+- ✅ Enable "Force to top" (keeps keyboard above other windows)
+
+---
+
+
+### 1.5 Install Docker
 
 ```bash
 curl -fsSL https://get.docker.com -o get-docker.sh
@@ -79,7 +127,7 @@ docker --version
 docker run hello-world
 ```
 
-### 1.4 Download Your Offline Map Tiles
+### 1.6 Download Your Offline Map Tiles
 
 This is the most time-consuming part and requires no LoRa hardware.
 
@@ -90,7 +138,7 @@ https://www.maptiler.com/on-prem-datasets/dataset/osm/#0.22/0/0
 2. Download the tileset for your region (e.g., Quebec or a smaller area)
 3. Transfer to your Pi
 
-### 1.5 Set Up TileServer GL Light
+### 1.7 Set Up TileServer GL Light
 
 You can run just the tile server portion to verify your maps work:
 
