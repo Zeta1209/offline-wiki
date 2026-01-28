@@ -105,6 +105,31 @@ Open Onboard **Preferences** and configure:
 
 ---
 
+### Enable Auto-Start on Boot
+
+Create the autostart entry:
+
+```bash
+mkdir -p ~/.config/autostart
+nano ~/.config/autostart/onboard.desktop
+```
+
+Paste the following:
+
+```ini
+[Desktop Entry]
+Type=Application
+Exec=onboard
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name=Onboard
+```
+
+Save (Ctrl+X, Y, Enter) and reboot.
+
+---
+
 
 ### 1.5 Install Docker
 
